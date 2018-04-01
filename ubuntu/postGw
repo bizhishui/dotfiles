@@ -1,0 +1,14 @@
+#!/bin/bash
+
+WORK_DIR=$PWD
+#WORK_DIR=/home/jinming/workspace/Stokes/CellInTube/capsule/CAPS_20170613-143230_NeoHookean_Gs_6.66_kappa_0.0_Tube_beta_0.2_zeta_5.0
+
+##LIB_PATH=/home/jinming/simuCodes/libs/soft_lib_duke
+LIB_PATH=/home/jinming/simuCodes/libs/soft_lib
+
+#RUNABLE=EquiViscoReciprocal.jar
+#RUNABLE=FreeSpace8.jar
+#RUNABLE=/home/jinming/simuCodes/Stokes/soft_cmd/SoftGwenn_20180221.jar
+#RUNABLE=/home/jinming/simuCodes/Stokes/soft_cmd/SoftTubeFS_20180327.jar
+RUNABLE=/home/jinming/simuCodes/Stokes/soft_cmd/SoftTubePost_MembraneVel_20171205.jar
+java -Xss512m -Xms1G -Xmx8G -Djava.library.path="$LIB_PATH/" -jar $RUNABLE -p "$WORK_DIR/" $1 $2 $3

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+LIB_PATH=/home/jinming/simuCodes/libs/soft_lib
+RUNABLE=/home/jinming/simuCodes/Stokes/soft_cmd/SoftTubeReciprocal_20180306.jar
+#RUNABLE=FreeSpace5.jar
+LOGFILE=RUNLOG.$(date +%Y%m%d-%Hh%M)
+INPUT=/data/workspace/Stokes/CellInTube/reciprocal/vesicle/inputFile.txt
+touch $LOGFILE
+#export LD_PRELOAD=libmkl_intel_lp64.so:libmkl_intel_thread.so:libmkl_core.so:libiomp5.so
+java -Xss512m -Xms1G -Xmx16G -Djava.library.path="$LIB_PATH/" -jar $RUNABLE -r $INPUT $RUNABLE $LOGFILE > $LOGFILE

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+LIB_PATH=/home/jinming/simuCodes/libs/soft_lib
+RUNABLE=/home/jinming/simuCodes/Stokes/soft_cmd/SoftGwenn_20180221.jar
+#RUNABLE=FreeSpace5.jar
+LOGFILE=RUNLOG.$(date +%Y%m%d-%Hh%M)
+touch $LOGFILE
+#export LD_PRELOAD=libmkl_intel_lp64.so:libmkl_intel_thread.so:libmkl_core.so:libiomp5.so
+java -Xss512m -Xms1G -Xmx16G -Djava.library.path="$LIB_PATH/" -jar $RUNABLE -r $PWD/inputFile.txt  > $LOGFILE
