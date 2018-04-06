@@ -6,7 +6,7 @@ echo "\$2 specify the remote path where files to be transferred."
 echo "  "
 echo "  "
 
-if [ $# -ne 2  ]; then
+if [ $# -lt 2  ]; then
     echo "The number of parameters is not correct..."
     exit 1
 fi
