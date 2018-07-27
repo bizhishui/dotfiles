@@ -92,6 +92,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ..'
+alias open='evince'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -127,28 +128,20 @@ export PATH=/home/jinming/bin:/home/jinming/.local/bin:/usr/local/sbin:/usr/loca
 
 
 #jdk and eclipse
-export PATH=/opt/jdk/jdk1.8.0_121/bin:$PATH
-export PATH=/usr/local/eclipse:$PATH
+export PATH=/opt/java/jdk1.8.0_181/bin:$PATH
+export PATH=/opt/eclipse:$PATH
 
 #texlive 2016
 unset INFOPATH
-export INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$INFOPATH
+export INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:$INFOPATH
 unset MANPATH
-export MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH
-export PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH
+export MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH
+export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
 
-#intel parallel studio
-#export PATH=/usr/intel/bin:$PATH
 
-#setting up MKL enviroment
-source /usr/intel/bin/compilervars.sh intel64
-#. /usr/intel/mkl/bin/mklvars.sh intel64
-
-export JAVA_HOME=/opt/jdk/jdk1.8.0_121
+export JAVA_HOME=/opt/java/jdk1.8.0_181
 
 unset LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/intel/compilers_and_libraries_2017.2.174/linux/compiler/lib/intel64:/usr/intel/compilers_and_libraries_2017.2.174/linux/compiler/lib/intel64_lin:/usr/intel/compilers_and_libraries_2017.2.174/linux/mpi/intel64/lib:/usr/intel/compilers_and_libraries_2017.2.174/linux/mpi/mic/lib:/usr/intel/compilers_and_libraries_2017.2.174/linux/ipp/lib/intel64:/usr/intel/compilers_and_libraries_2017.2.174/linux/compiler/lib/intel64_lin:/usr/intel/compilers_and_libraries_2017.2.174/linux/mkl/lib/intel64_lin:/usr/intel/compilers_and_libraries_2017.2.174/linux/tbb/lib/intel64/gcc4.7:/usr/intel/debugger_2017/iga/lib:/usr/intel/debugger_2017/libipt/intel64/lib:/usr/intel/compilers_and_libraries_2017.2.174/linux/daal/lib/intel64_lin:/usr/intel/compilers_and_libraries_2017.2.174/linux/daal/../tbb/lib/intel64_lin/gcc4.4
-export LD_LIBRARY_PATH=/usr/intel/mkl/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/openmpi/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
