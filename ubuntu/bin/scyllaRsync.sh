@@ -6,6 +6,8 @@ echo "\$2 specify the remote path where files to be transferred."
 echo "  "
 echo "  "
 
+# scp -P 2222 SoftTube_20180520.jar jlyu@127.0.0.1:/users/rech/jlyu/CellInTube
+
 if [ $# -lt 2  ]; then
     echo "The number of parameters is not correct..."
     exit 1

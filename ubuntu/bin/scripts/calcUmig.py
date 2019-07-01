@@ -1,13 +1,13 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import sys
 
 if len(sys.argv) < 2:
-    print "Need more input arguments..."
+    print("Need more input arguments...")
     exit(1)
 
 finstr = sys.argv[1]
 
-fo = open('Umig.txt', 'a')
+fo = open('../Umig.txt', 'a')
 fo.write("#time\tYg\tUmig\n")
 
 if len(sys.argv)==2:
@@ -26,7 +26,7 @@ if len(sys.argv)==2:
                 timer = timer + 1
                 pos0 = posi
                 posi = rest.split('\t')[8]
-                if timer > 1:
+                if (timer > 1):
                     fo.write("{}\t{}\t{}\n".format(time, posi, (float(posi)-float(pos0))/(float(time)-float(t0))))
 elif len(sys.argv)==3:                         # aims to remove error points due to remesh, NOT working
     remeshFreq = sys.argv[2]
@@ -40,18 +40,44 @@ elif len(sys.argv)==3:                         # aims to remove error points due
         for line in f:
             line = line.split('#', 1)[0]       #split once the string with #
             line = line.rstrip()               #return a copy of the string with trailing characters removed
-            if len(line) > 0:
+            if (len(line) > 0):
                 t0 = time
                 time, rest = line.split('\t', 1)
                 timer = timer + 1
                 rmshTimer = rmshTimer + 1
                 pos0 = posi
                 posi = rest.split('\t')[8]
-                if timer > 1 and rmshTimer != remeshFreq:
+                #if (timer > 1 and rmshTimer != remeshFreq):
+                if (timer > 1 and (float(time)-float(t0))>1E-6):
                     fo.write("{}\t{}\t{}\n".format(time, posi, (float(posi)-float(pos0))/(float(time)-float(t0))))
                 elif rmshTimer == remeshFreq:
                     rmshTimer = 0
+elif len(sys.argv)==4:                         # aims to remove error points due to remesh, NOT working
+    remeshFreq = sys.argv[2]
+    if (sys.argv[3] == 'a'):
+        with open(finstr, 'r') as f:
+            pos0 = 0.0
+            posi = 0.0
+            t0 = 0.0
+            time = 0.0
+            timer = 0
+            rmshTimer = 9
+            for line in f:
+                line = line.split('#', 1)[0]       #split once the string with #
+                line = line.rstrip()               #return a copy of the string with trailing characters removed
+                if (len(line) > 0):
+                    t0 = time
+                    time, rest = line.split('\t', 1)
+                    timer = timer + 1
+                    rmshTimer = rmshTimer + 1
+                    pos0 = posi
+                    posi = rest.split('\t')[8]
+                    #if (timer > 1 and rmshTimer != remeshFreq):
+                    if (timer > 1 and (float(time)-float(t0))>1E-6):
+                        fo.write("{}\t{}\t{}\n".format(time, posi, (float(posi)-float(pos0))/(float(time)-float(t0))))
+                    elif rmshTimer == remeshFreq:
+                        rmshTimer = 0
 else:
-    print "Only accept one or two parameters!!!"
+    print("Only accept one, two or three parameters!!!")
 
 fo.close()

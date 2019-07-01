@@ -93,6 +93,8 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ..'
 alias open='evince'
+alias pathmeso="cd /data/workspace/Stokes/CellInTube/vesicle/Misbah2014_3/mesocentre"
+alias mkday='mkdir $(date +%Y%m%d)'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -122,13 +124,20 @@ alias vi=vim
 alias lh='ll -h'
 alias grep='grep -n --color=auto'
 alias rm=saferm.sh
+#alias myrsync='rsync --ignore-existing -raz --progress --delete'
+alias myrsync='rsync -ravh'
+
+ulimit -S -s unlimited
 
 unset PATH
 export PATH=/home/jinming/bin:/home/jinming/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 
 #jdk and eclipse
+export JAVA_HOME=/opt/java/jdk1.8.0_181
 export PATH=/opt/java/jdk1.8.0_181/bin:$PATH
+#export JAVA_HOME=/opt/java/jdk-11.0.1
+#export PATH=$JAVA_HOME/bin:$PATH
 export PATH=/opt/eclipse:$PATH
 
 #texlive 2016
@@ -138,8 +147,6 @@ unset MANPATH
 export MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH
 export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
 
-
-export JAVA_HOME=/opt/java/jdk1.8.0_181
 
 unset LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/openmpi/lib:$LD_LIBRARY_PATH
@@ -151,8 +158,24 @@ alias g++='g++ -std=c++11'
 
 export PATH=/home/jinming/bin/scripts:$PATH
 export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LIBRARY_PATH
+export SOFT2D_HOME='/home/jinming/simuCodes/Stokes/Soft2D'
+
+export LC_ALL="en_US.UTF-8"
+
+export PYTHONPATH=/home/jinming/softs/gimli/gimli/python
+export PATH=/home/jinming/softs/gimli/gimli/python/apps:$PATH
 
 export PATH=/home/jinming/simuCodes/Stokes/soft_cmd:$PATH
+export PATH=/home/jinming/softs/vtk2gmsh/scripts:$PATH
+export PATH=/opt/intel/compilers_and_libraries_2019.0.117/linux/bin/intel64:$PATH
+export MKLROOT=/opt/intel/compilers_and_libraries_2019.0.117/linux/mkl
+export LD_LIBRARY_PATH=/opt/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64:/opt/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64:$LD_LIBRARY_PATH
+
+#export PATH=/opt/ParaView-5.3.0-Qt5-OpenGL2-MPI-Linux-64bit/bin:$PATH
+export PATH=/opt/ParaView-5.6.1-MPI-Linux-64bit/bin:$PATH
+export PATH=/opt/Zotero_linux-x86_64:$PATH
+export PATH=/home/jinming/simuCodes/Stokes/SoftAxi/bin:$PATH
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then

@@ -13,13 +13,13 @@ fi
 
 if [ "$1" = "S" ]; then
     echo "Do not copy *.ser files"
-    rsync -rav -e ssh --include='*.vtk' --include='*.txt' --exclude='*.ser' chen@duke.l3m.univ-mrs.fr:$2 .
+    rsync -rav -e ssh --exclude='*.vtk' --include='*.txt' --exclude='*.ser' schateau@195.83.116.129:$2 .
 elif [ "$1" = "F" ]; then
     echo "Copy *.ser files"
-    rsync -rav -e ssh --include='*.vtk' --include='*.txt' --include='*.ser' chen@duke.l3m.univ-mrs.fr:$2 .
+    rsync -rav -e ssh --include='*.vtk' --include='*.txt' --include='*.ser' schateau@195.83.116.129:$2 .
 elif [ "$1" = "Ser" ]; then
     echo "only copy *.ser files"
-    rsync -rav -e ssh --exclude='*.vtk' --exclude='*.jar' --exclude='RUN*' --include='*.txt' --include='*.ser' chen@duke.l3m.univ-mrs.fr:$2 .
+    rsync -rav -e ssh --exclude='*.vtk' --exclude='*.jar' --exclude='RUN*' --include='*.txt' --include='*.ser' schateau@195.83.116.129:$2 .
 else
     echo "Parameter error."
     exit 1
