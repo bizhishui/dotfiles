@@ -1,0 +1,26 @@
+#!/bin/bash
+#OAR -n 85R2d83N3H055
+#OAR -l /nodes=1/core=8/gpunum=1,walltime=168:00:00
+##OAR -q long                    
+#OAR -p gpu
+#OAR -O RUN.%jobid%.stdout
+#OAR -E RUN.%jobid%.stderr
+#OAR --project b067
+module load intel/16.0.0
+##java -Xss200m -Xms10G -Xmx30G  -jar Soft060916.jar -r inputFile.txt
+RESTART=
+LOGFILE=RUN.$OAR_JOB_ID.stdout
+
+##RUNABLE=EquiVisco3.jar
+##RUNABLE=EquiVisco10.jar
+##RUNABLE=EquiVisco9.jar
+##RUNABLE=./capsule/SoftTube_20170704.jar
+##RUNABLE=../SoftTube_20170920.jar
+##RUNABLE=../SoftTube_20180206.jar
+RUNABLE=../SoftTube_20180309.jar
+
+##RUNABLE=EquiVisco8_RecoverAppendA.jar
+##RUNABLE=./capsule/SoftTubeFS_20170704.jar
+
+cat $0 >> RUN.$OAR_JOB_ID.stderr
+/etc/alternatives/jre_1.8.0/bin/java -Xss512m -Xms1G -Xmx16G -Djava.library.path="/home/jlv/Soft/CellInTube/SoftJohn_lib/" -jar $RUNABLE -r inputFile.txt $RUNABLE $LOGFILE

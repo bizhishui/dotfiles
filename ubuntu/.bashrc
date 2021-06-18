@@ -136,9 +136,13 @@ export PATH=/home/jinming/bin:/home/jinming/.local/bin:/usr/local/sbin:/usr/loca
 #jdk and eclipse
 export JAVA_HOME=/opt/java/jdk1.8.0_181
 export PATH=/opt/java/jdk1.8.0_181/bin:$PATH
+#export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+#export PATH=$JAVA_HOME/bin:$PATH
 #export JAVA_HOME=/opt/java/jdk-11.0.1
 #export PATH=$JAVA_HOME/bin:$PATH
 export PATH=/opt/eclipse:$PATH
+#export PATH=/opt/ParaView-5.3.0-Qt5-OpenGL2-MPI-Linux-64bit/bin:$PATH
+export PATH=$PATH:/opt/ParaView-5.6.1-MPI-Linux-64bit/bin
 
 #texlive 2016
 unset INFOPATH
@@ -149,12 +153,13 @@ export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
 
 
 unset LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/lib/openmpi/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/usr/lib/openmpi/lib
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 
 #export LD_PRELOAD=libmkl_intel_lp64.so:libmkl_intel_thread.so:libmkl_core.so:libiomp5.so
 
 alias g++='g++ -std=c++11'
+alias of1912='source /data/code/OpenFOAM/OpenFOAM-v1912/etc/bashrc '
 
 export PATH=/home/jinming/bin/scripts:$PATH
 export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LIBRARY_PATH
@@ -167,14 +172,46 @@ export PATH=/home/jinming/softs/gimli/gimli/python/apps:$PATH
 
 export PATH=/home/jinming/simuCodes/Stokes/soft_cmd:$PATH
 export PATH=/home/jinming/softs/vtk2gmsh/scripts:$PATH
-export PATH=/opt/intel/compilers_and_libraries_2019.0.117/linux/bin/intel64:$PATH
-export MKLROOT=/opt/intel/compilers_and_libraries_2019.0.117/linux/mkl
-export LD_LIBRARY_PATH=/opt/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64:/opt/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64:$LD_LIBRARY_PATH
+#export PATH=/opt/intel/compilers_and_libraries_2019.0.117/linux/bin/intel64:$PATH
+#export MKLROOT=/opt/intel/compilers_and_libraries_2019.0.117/linux/mkl
+#export LD_LIBRARY_PATH=/opt/intel/compilers_and_libraries_2019.0.117/linux/compiler/lib/intel64:/opt/intel/compilers_and_libraries_2019.0.117/linux/mkl/lib/intel64:$LD_LIBRARY_PATH
 
-#export PATH=/opt/ParaView-5.3.0-Qt5-OpenGL2-MPI-Linux-64bit/bin:$PATH
-export PATH=/opt/ParaView-5.6.1-MPI-Linux-64bit/bin:$PATH
 export PATH=/opt/Zotero_linux-x86_64:$PATH
 export PATH=/home/jinming/simuCodes/Stokes/SoftAxi/bin:$PATH
+
+#export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:/opt/PARDISO:/opt/coinhsl/lib:/opt/coinIpopt/lib:$LD_LIBRARY_PATH
+#export PARDISO_LIC_PATH=/opt/PARDISO
+
+export LD_LIBRARY_PATH=/opt/gismo/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/opt/OpenMesh/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/data/code/softpp/install/lib:$LD_LIBRARY_PATH
+#export PATH=/opt/gmsh/bin:$PATH
+export PATH=/home/jinming/softs/boost_1_73_0:$PATH
+export LD_LIBRARY_PATH=/opt/finufft/lib:/opt/fftw_3_3_8/lib:/home/jinming/softs/boost_1_73_0/stage/lib:$LD_LIBRARY_PATH
+export PATH=/home/jinming/softs/Sourcetrail-2020.2.43/build/Release/app:$PATH
+#export LD_LIBRARY_PATH=/opt/openmpi/lib:$LD_LIBRARY_PATH
+#export PATH=/opt/openmpi/bin:$PATH
+
+# set OpenMP variable
+# used both for pardiso https://www.pardiso-project.org/ and 
+# openblas https://github.com/xianyi/OpenBLAS
+export OMP_NUM_THREADS=8
+
+export CMAKE_ROOT=/home/jinming/.local/share/cmake-3.18
+
+alias forti='/home/jinming/softs/forticlientsslvpn/fortisslvpn.sh & '
+
+export LIBMESH_DIR=/data/code/libmesh_install
+#export LIBMESH_DIR=/data/code/libmesh_install/opt
+export PATH=$LIBMESH_DIR/bin:$PATH
+export LD_LIBRARY_PATH=$LIBMESH_DIR/lib:$LD_LIBRARY_PATH
+
+# petsc
+export PETSC_DIR=/data/code/petsc_install
+#export PETSC_DIR=/data/code/petsc_install/opt
+#export PETSC_ARCH=arch-linux-c-opt
+
+export LIBMESH_EX=/data/code/libmesh/examples/soif/
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"

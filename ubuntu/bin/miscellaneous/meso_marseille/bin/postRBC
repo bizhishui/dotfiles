@@ -1,0 +1,26 @@
+#!/bin/sh
+#SBATCH --job-name=post
+#SBATCH --time=2:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --partition=kepler
+#SBATCH --account=b067
+#SBATCH -o POST.%j.out
+#SBATCH --nice=0
+#SBATCH --no-requeue
+
+##RUNABLE=/scratch/jlv/run/jars/RBC2_pince20190226.jar
+##RUNABLE=/scratch/jlv/run/RBC/RBC_shear0922.jar
+##RUNABLE=/scratch/jlv/run/jars/RBC1_shear1227.jar
+##RUNABLE=/scratch/jlv/run/jars/RBC2_pince1229_2.jar
+##RUNABLE=/scratch/jlv/run/jars/RBC3_shear0106.jar
+RUNABLE=/scratch/jlv/run/jars/RBC6_shear20190408.jar
+##RUNABLE=/scratch/jlv/run/jars/RBC5_shear20190402.jar
+##RUNABLE=/scratch/jlv/run/RBC/RBC_shear0801.jar
+##RUNABLE=/scratch/jlv/run/jars/postShowRefShape.jar
+
+# chargement des modules
+#module load intel-mpi/64/2018.0.128
+
+WORK_DIR=$PWD
+java -Xss512m -Xms1G -Xmx16G -Djava.library.path="/home/jlv/soft/SOFT_Libs/soft_lib/" -jar $RUNABLE -p $WORK_DIR/ $1 $2 $3
