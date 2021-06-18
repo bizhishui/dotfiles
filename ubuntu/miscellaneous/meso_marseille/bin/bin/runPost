@@ -1,0 +1,3 @@
+#!/bin/bash
+
+oarsub -S /home/jlv/bin/post.oar

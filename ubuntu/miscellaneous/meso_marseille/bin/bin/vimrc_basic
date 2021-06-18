@@ -1,0 +1,70 @@
+" no vi-compatible
+set nocompatible
+" tabs and spaces handling
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+" highlight cursor line and column
+set cursorline
+set cursorcolumn
+" hidden startup messages
+set shortmess=atI
+" when deal with unsaved files ask what to do
+set confirm
+" no backup files
+set nobackup
+" other settings 
+set mouse=a
+set whichwrap+=<,>,h,l,[,]
+set encoding=utf-8
+
+set backspace=2 " make backspace work like most other apps
+set backspace=indent,eol,start
+
+" always show status bar
+set laststatus=2
+
+" incremental search
+set incsearch
+" highlighted search results
+set hlsearch
+" search ignore case
+set ignorecase
+" muting search highlighting 
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+" syntax highlight on
+syntax on
+
+" show line numbers
+set nu
+
+" Comment this line to enable autocompletion preview window
+" (displays documentation related to the selected completion option)
+" Disabled by default because preview makes the window flicker
+set completeopt-=preview
+
+" when scrolling, keep cursor 3 lines away from screen border
+set scrolloff=3
+
+" autocompletion of files and commands behaves like zsh
+" (autocomplete menu)
+set wildmenu
+set wildmode=full
+
+" better backup, swap and undos storage
+set directory=~/.vim/dirs/tmp     " directory to place swap files in
+set backup                        " make backup files
+set backupdir=~/.vim/dirs/backups " where to put backup files
+set viminfo+=n~/.vim/dirs/viminfo
+" store yankring history file there too
+let g:yankring_history_dir = '~/.vim/dirs/'
+
+" create needed directories if they don't exist
+if !isdirectory(&backupdir)
+    call mkdir(&backupdir, "p")
+endif
+if !isdirectory(&directory)
+    call mkdir(&directory, "p")
+endif

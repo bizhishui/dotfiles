@@ -1,0 +1,13 @@
+#!/bin/bash
+#OAR -n post
+#OAR -l core=1,walltime=4:00:00
+#OAR -q long                    
+##OAR -p gpu
+#OAR -O POST.%jobid%.stdout
+#OAR -E POST.%jobid%.stderr
+#OAR --project b067
+module load intel/16.0.0
+RUNABLE=/home/jlv/Soft/CellInTube/SoftTube_20180520.jar
+##RUNABLE=./capsule/SoftTubeFS_20170704.jar
+WORK_DIR=$PWD
+java -Xss512m -Xms1G -Xmx8G -Djava.library.path="/home/jlv/Soft/CellInTube/SoftJohn_lib/" -jar $RUNABLE -p $WORK_DIR/
